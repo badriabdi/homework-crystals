@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>simple crystal game</title>
+
+  <link rel="stylesheet" href="assets/style.css">
+
+</head>
+<body>
+	<h1>Number to guess:<span id="number-to-guess"></span> </h1>
+
+  <div id="crystals">
+
+	<img class="crystal-image" id="image1" src="http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg" alt="crystals">
+	<img class="crystal-image" id="image2" src="http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg" alt="crystals">
+	<img class="crystal-image" id="image3" src="http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg" alt="crystals">
+	<img class="crystal-image" id="image4" src="http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg" alt="crystals">
+
+  </div>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script type="text/javascript">
+
+  var targetNumber = 34;
+
+  $("#number-to-guess").text(targetNumber);
+  var counter = 0;
+  var num1 = Math.floor(Math.random()*10);
+  var num2 = Math.floor(Math.random()*10);
+  var num3 = Math.floor(Math.random()*10);
+  var num4 = Math.floor(Math.random()*10);
+
+  function reset (){
+  num1 = Math.floor(Math.random()*10);
+  num2 = Math.floor(Math.random()*10);
+  num3 = Math.floor(Math.random()*10);
+  num4 = Math.floor(Math.random()*10);
+  }
+  
+  
+
+  var numberOptions = " ";
+
+
+  var increment = numberOptions[Math.round(Math.random())];
+
+checkScore = function() {
+  if (counter === targetNumber) {
+    alert('you win');
+    reset();
+  }
+  if (counter > targetNumber) {
+    alert('you lose')
+    reset();
+  }
+}
+
+// 
+  $("#image1").on("click", function() {
+
+    counter+=num1;
+    alert("New score:" + counter );
+    checkScore();
+
+
+  });
+
+  $("#image2").on("click", function() {
+
+counter+=num2;
+alert("New score:" + counter );
+checkScore();
+
+
+});
+
+$("#image3").on("click", function() {
+
+counter+=num3;
+alert("New score:" + counter );
+checkScore();
+
+
+});
+
+$("#image4").on("click", function() {
+
+counter+=num4;
+alert("New score:" + counter );
+checkScore();
+
+
+});
+
+
+
+  
+
+  </script>
+</body>
+</html>
